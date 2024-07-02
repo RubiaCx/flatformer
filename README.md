@@ -101,8 +101,8 @@ gcloud auth login
 gcloud auth application-default login
 
 <path-to-cloud-sdk>/google-cloud-sdk/bin/gsutil -m cp -r "gs://waymo_open_dataset_v_1_2_0/" .
- # or
- <path-to-cloud-sdk>/google-cloud-sdk/bin/gsutil -m cp -r "gs://waymo_open_dataset_v_1_2_0_individual_files/" .
+# or
+<path-to-cloud-sdk>/google-cloud-sdk/bin/gsutil -m cp -r "gs://waymo_open_dataset_v_1_2_0_individual_files/" .
 ```
 
 #### mmdet3d
