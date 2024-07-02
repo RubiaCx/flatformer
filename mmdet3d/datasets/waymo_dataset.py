@@ -187,8 +187,8 @@ class WaymoDataset(KittiDataset):
         if 'waymo' in data_format:
             from ..core.evaluation.waymo_utils.prediction_kitti_to_waymo import \
                 KITTI2Waymo  # noqa
-            waymo_root = osp.join(
-                self.data_root.split('sst')[0], 'raw')
+            waymo_root = osp.join(self.data_root.split('kitti_format')[0], 'waymo_format')
+                # self.data_root.split('sst')[0], 'raw')
             if self.split == 'training':
                 if self.save_training:
                     waymo_tfrecords_dir = osp.join(waymo_root, 'training')
@@ -285,8 +285,8 @@ class WaymoDataset(KittiDataset):
                     eval_types=['bev', '3d'])
                 print_log('\n' + ap_result_str, logger=logger)
         if 'waymo' in metric:
-            waymo_root = osp.join(
-                self.data_root.split('sst')[0], 'raw')
+            waymo_root = osp.join(self.data_root.split('kitti_format')[0], 'waymo_format')
+                # self.data_root.split('sst')[0], 'raw')
             if pklfile_prefix is None:
                 eval_tmp_dir = tempfile.TemporaryDirectory()
                 pklfile_prefix = osp.join(eval_tmp_dir.name, 'results')
