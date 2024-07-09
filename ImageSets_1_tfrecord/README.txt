@@ -1,0 +1,3 @@
+train: segment-10017090168044687777_6380_000_6400_000_with_camera_labels.tfrecord
+test:  segment-10084636266401282188_1120_000_1140_000_with_camera_labels.tfrecord 
+val:   segment-10203656353524179475_7625_000_7645_000_with_camera_labels.tfrecord

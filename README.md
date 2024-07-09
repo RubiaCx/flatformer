@@ -13,7 +13,7 @@
 | [FlatFormer](https://github.com/mit-han-lab/flatformer-dev/blob/main/configs/flatformer/flatformer_waymo_D1_2x_3class_3f.py) | 3       | 79.6/78.0 | 73.5/72.0 | 79.7/79.2 | 71.4/71.0 | 82.0/78.7 | 74.5/71.3 | 77.2/76.1 | 74.7/73.7 |
 | FlatFormer with 1/34 trainSet & 1/8 testSet                  | 1       | 9.32/9.03 | 8.33/8.08 | 10.30/10.22 | 8.83/8.75 | 6.24/5.68 | 5.17/4.71 | 11.43/11.20 | 10.99/10.77 |
 | FlatFormer with 1/34 trainSet & 1/8 testSet                  | 3       | 9.92/9.72 | 8.86/8.69 | 11.04/10.96 | 9.48/9.41 | 6.82/6.52 | 5.66/5.42 | 11.89/11.67 | 11.45/11.23 |
-
+| FlatFormer with 1 tfrecord| 1       | 0.0011/0.0011 | 0.0009/0.0009 | 0.0020/0.0019 | 0.0017/0.0017 | 0.0014/0.0012 | 0.0012/0.0010 | 0.0000/0.0000 | 0.0000/0.0000 |
 ## Usage
 
 ### Prerequisites
@@ -46,8 +46,8 @@ pip install mmdet==2.14.0
 pip install mmsegmentation==0.14.1
 pip install numba==0.48.0
 pip install trimesh==2.35.39
-pip install future tensorboard
-pip install way-open-dataset-tf-2.1.0==1.2.0
+pip install future tenssorboard
+pip install waymo-open-dataset-tf-2.1.0==1.2.0
 pip install yapf==0.40.1
 pip install setuptools==59.5.0
 pip install nuscenes-devkit
@@ -64,7 +64,7 @@ cd ./flash-attention
 git checkout f515c77f2528b5062ebcc6c905c8817ca0ac0ad1
 python setup.py develop
 
-git clone https://github.com/mit-han-lab/flatformer
+git clone https://github.com/RubiaCx/flatformer.git
 cd ./flatformer
 python setup.py develop
 ```
@@ -123,6 +123,8 @@ python tools/create_data.py waymo --root-path ./data/waymo --out-dir ./data/waym
 ```
 
 If you use the subset of waymo datasets, please remake the data split files according to files in training, testing or waymo_gt_database of `path-to-waymo/waymo/kitti_format/ImageSets`. If you only need to unzip the first zip of train, test and val, you can refer to `ImageSets/`. In the meantime I implemented the ability to skip non-existing files.
+
+mmdet3d 0.15.0在制作数据集时，train.txt与trainval.txt、val.txt必须一致……奇妙的bug
 
 After data preparation, you will be able to see the following directory structure (as is indicated in mmdetection3d):
 
